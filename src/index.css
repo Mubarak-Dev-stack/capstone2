@@ -1,12 +1,62 @@
+:root {
+    --primary-color-1: #495e57;
+    --primary-color-2: #f4ce14;
+    --secondary-color-1: #ee9972;
+    --secondary-color-2: #fbdabb;
+    --highlight-color-1: #edefee;
+    --highlight-color-2: #333;
+    --white: #fff;
+
+    --global-border-radius: 16px;
+}
+
+@font-face {
+    font-family: 'Karla';
+    src:
+        url('./assets/fonts/Karla-VariableFont_wght.woff2') format('woff2-variations'),
+        url('./assets/fonts/Karla-Regular.woff2') format('woff2');
+    font-weight: 200 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Markazi Text';
+    src:
+        url('./assets/fonts/MarkaziText-VariableFont_wght.woff2') format('woff2-variations'),
+        url('./assets/fonts/MarkaziText-VariableFont_wght.woff2') format('woff2');
+    font-weight: 400 700;
+    font-style: normal;
+}
+
 html {
-    background-color: #fff;
+    font-size: calc(10em / 16);
+    background-color: var(--white);
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  overflow-x: hidden;
+  font-family: Karla, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2 {
+    margin: 0;
+    line-height: 1.1;
+    font-family: 'Markazi Text', Karla, sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 5.6rem;
+}
+h2 {
+    font-size: 4rem;
 }
