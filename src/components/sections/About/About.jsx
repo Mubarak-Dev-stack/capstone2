@@ -1,7 +1,7 @@
 import Section from "../../Layout/Section/Section";
 
-import img1 from "../../../assets/about/MarioAndAdrianA.jpg";
-import img2 from "../../../assets/about/MarioAndAdrianB.jpg";
+import img1 from "../../../assets/about/restaurant.jpg";
+import img2 from "../../../assets/about/restaurantChefB.jpg";
 
 import "./About.css";
 
@@ -40,7 +40,7 @@ function About() {
                     <img
                         className="about__image"
                         src={img2}
-                        alt="Mario and Adrian in the kitchen"
+                        alt="Mario and Adrian having fun in the kitchen"
                     />
                 </div>
             </div>

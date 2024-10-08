@@ -5,7 +5,7 @@ import './TestimonialSection.css'
 
 function TestimonialSection({ data = [] }) {
     return (
-        <Section>
+        <Section bg="dark">
             <h2>Testimonials</h2>
             <ul className="testimonials">
                 {data.map((testimonial) => (

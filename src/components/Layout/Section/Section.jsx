@@ -1,11 +1,11 @@
 import './Section.css'
 
-function Section({children, wide = false}) {
+function Section({children, bg}) {
 
-    const wideClass = (wide) ? 'section--wide' : ''
+    const bgClass = (bg === 'dark') ? 'section--dark' : ''
 
-    return <section className={`section ${wideClass}`}>
-        <div className="section__inner">
+    return <section className={`section ${bgClass}`}>
+        <div className="section__inner container">
             {children}
         </div>
     </section>

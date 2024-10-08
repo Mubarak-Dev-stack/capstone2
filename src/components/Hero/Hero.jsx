@@ -3,7 +3,7 @@ import './Hero.css'
 
 function Hero() {
     return <article className="hero">
-        <div className="hero__inner">
+        <div className="hero__inner container">
             <div>
                 <h1>Little Lemon</h1>
                 <h2>Chicago</h2>

@@ -1,6 +1,10 @@
 .app {
-    margin: 0 auto;
-    padding: 0 24px;
-    max-width: 1008px;
     min-height: 100vh;
+}
+
+.container {
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 1008px;
 }

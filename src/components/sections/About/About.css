@@ -1,7 +1,11 @@
 .about {
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, 1fr);
     gap: 64px;
+
+    @media screen and (max-width: 810px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .about__text {
@@ -20,7 +24,7 @@
 .about__images {
     position: relative;
     padding-top: 96px;
-    padding-right: 192px;
+    /* padding-right: 192px; */
 }
 
 .about__image {
@@ -28,12 +32,11 @@
     object-fit: cover;
     display: block;
     border-radius: var(--global-border-radius);
-    width: 100%;
+    width: 55%;
 
     & + & {
         position: absolute;
         top: 0;
         right: 0;
-        width: calc(100% - 192px);
     }
 }

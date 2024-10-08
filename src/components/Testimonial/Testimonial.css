@@ -1,6 +1,7 @@
 .testimonial {
     border-radius: var(--global-border-radius);
     padding: 2px;
+    color: var(--primary-color-1);
     background: linear-gradient(-45deg, var(--secondary-color-1), var(--highlight-color-1) 30%, var(--highlight-color-1) 70%, var(--secondary-color-1));
 }
 
@@ -24,7 +25,6 @@
 .testimonial__name {
     font-size: 1.8rem;
     font-weight: 500;
-    color: var(--primary-color-1);
 }
 
 .testimonial__rating {

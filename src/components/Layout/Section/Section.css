@@ -1,3 +1,15 @@
-.section {
-    padding: 64px 0;
+.section--dark {
+    color: var(--white);
+    background-color: var(--primary-color-1);
+}
+
+.section__inner {
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.section__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
 }
