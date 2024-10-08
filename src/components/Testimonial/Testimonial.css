@@ -1,6 +1,39 @@
 .testimonial {
-    aspect-ratio: 1;
+    border-radius: var(--global-border-radius);
+    padding: 2px;
+    background: linear-gradient(-45deg, var(--secondary-color-1), var(--highlight-color-1) 30%, var(--highlight-color-1) 70%, var(--secondary-color-1));
+}
+
+.testimonial__inner {
     border-radius: var(--global-border-radius);
     padding: 16px;
-    background-color: grey;
+    background-color: var(--highlight-color-1);
+}
+
+.testimonial__avatar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.testimonial__name,
+.testimonial__text {
+    margin: 0;
+}
+
+.testimonial__name {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--primary-color-1);
+}
+
+.testimonial__rating {
+    margin-top: 8px;
+    color: var(--primary-color-2);
+}
+
+.testimonial__image {
+    aspect-ratio: 1;
+    border-radius: var(--global-border-radius);
+    width: 80px;
 }

@@ -8,12 +8,13 @@ function TestimonialSection({ data = [] }) {
         <Section>
             <h2>Testimonials</h2>
             <ul className="testimonials">
-                {data.map((testimonial, index) => (
-                    <li key={index}>
+                {data.map((testimonial) => (
+                    <li key={testimonial.id}>
                         <Testimonial
                             name={testimonial.name}
                             rating={testimonial.rating}
                             text={testimonial.text}
+                            image={testimonial.image}
                         />
                     </li>
                 ))}
