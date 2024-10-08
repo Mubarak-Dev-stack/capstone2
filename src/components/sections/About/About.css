@@ -1,0 +1,39 @@
+.about {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    gap: 64px;
+}
+
+.about__text {
+
+    h2 {
+        margin: 0;
+        color: var(--primary-color-2);
+    }
+
+    h3 {
+        margin: 0;
+        color: var(--primary-color-1);
+    }
+}
+
+.about__images {
+    position: relative;
+    padding-top: 96px;
+    padding-right: 192px;
+}
+
+.about__image {
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--global-border-radius);
+    width: 100%;
+
+    & + & {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 192px);
+    }
+}

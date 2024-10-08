@@ -23,7 +23,7 @@ function Testimonial({
                 <img className="testimonial__image" src={image} alt=""/>
                 <div>
                     <div className="testimonial__rating" role="img" aria-label={`Rating: ${rating} of 5 stars`}>
-                        { ratingIcons.map((ratingIcon, index) => <FontAwesomeIcon key={index} icon={ratingIcon} size="m" />) }
+                        { ratingIcons.map((ratingIcon, index) => <FontAwesomeIcon key={index} icon={ratingIcon} />) }
                     </div>
                     <p className="testimonial__name">{name}</p>
                 </div>
