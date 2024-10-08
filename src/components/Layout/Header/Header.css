@@ -3,4 +3,9 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+    padding: 16px 0;
+
+    img {
+        width: 200px;
+    }
 }
