@@ -7,7 +7,7 @@ import './MealSection.css'
 function MealSection({ data = [] }) {
     return (
         <Section>
-            <div class="section__header">
+            <div className="section__header">
                 <h2>Meals</h2>
                 <Button>Online Menu</Button>
             </div>
