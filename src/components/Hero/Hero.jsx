@@ -1,4 +1,6 @@
 import Button from '../Button/Button'
+import image from '../../assets/hero/restauranfood.jpg';
+
 import './Hero.css'
 
 function Hero() {
@@ -10,7 +12,9 @@ function Hero() {
                 <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
                 <Button href="#reserve">Reserve a Table</Button>
             </div>
-            <img src="" alt=""/>
+            <div>
+                <img className="hero__image" src={image} alt="restaurant food on a plate"/>
+            </div>
         </div>
     </article>
 }
