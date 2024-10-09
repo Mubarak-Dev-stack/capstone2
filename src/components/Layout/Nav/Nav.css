@@ -1,12 +1,109 @@
+@keyframes nav-fade-in {
+    0% {
+        display: none;
+        left: 100%;
+    }
+    1% {
+        display: flex;
+        left: 100%;
+    }
+    100% {
+        display: flex;
+        left: 0;
+    }
+}
+
+@keyframes nav-fade-out {
+    0% {
+        display: flex;
+        left: 0;
+    }
+    99% {
+        display: flex;
+        left: 100%;
+    }
+    100% {
+        display: none;
+        left: 100%;
+    }
+}
+
 .nav__list {
-    display: flex;
-    gap: 16px;
     margin: 0;
     padding: 0;
     list-style: none;
+
+    @media screen and (min-width: 741px) {
+        display: flex;
+        gap: 4px;
+    }
+
+    @media screen and (max-width: 740px) {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        right: 0;
+        left: 100%;
+        border-top: 1px solid var(--primary-color-1);
+        box-shadow: 0 5px 4px 0 rgba(0, 0, 0, .3);
+        background-color: var(--white);
+        animation: nav-fade-out .2s ease-out;
+
+        &[data-open=true] {
+            display: flex;
+            left: 0;
+            animation: nav-fade-in .3s ease-out;
+        }
+    }
+}
+
+.nav__toggle {
+    border: 0;
+    border-radius: var(--global-border-radius);
+    padding: 8px 16px;
+    color: var(--primary-color-1);
+    background-color: var(--white);
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: var(--primary-color-1);
+        background-color: var(--primary-color-2);
+        cursor: pointer;
+    }
+
+    @media screen and (min-width: 741px) {
+        display: none;
+    }
 }
 
 .nav__link {
+    display: block;
     color: inherit;
     text-decoration: none;
+
+    &.active {
+        color: var(--white);
+        background-color: var(--primary-color-1);
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: var(--primary-color-1);
+        background-color: var(--primary-color-2);
+    }
+
+    @media screen and (min-width: 740px) {
+        border-radius: var(--global-border-radius);
+        padding: 8px 16px;
+        color: var(--primary-color-1);
+        background-color: var(--white);
+    }
+
+    @media screen and (max-width: 740px) {
+        padding: 16px;
+    }
 }
