@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import "./Nav.css";
+import { NavLink } from "react-router-dom";
 
 function Nav() {
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -28,34 +29,22 @@ function Nav() {
             </button>
             <ul id="nav-menu" className="nav__list" data-open={isMobileNavOpen}>
                 <li className="nav__item">
-                    <a className="nav__link active" href="/">
-                        Home
-                    </a>
+                    <NavLink className="nav__link" to="/">Home</NavLink>
                 </li>
                 <li className="nav__item">
-                    <a className="nav__link" href="#about">
-                        About
-                    </a>
+                    <NavLink className="nav__link" to="/about">About</NavLink>
                 </li>
                 <li className="nav__item">
-                    <a className="nav__link" href="#menu">
-                        Menu
-                    </a>
+                    <NavLink className="nav__link" to="/menu">Menu</NavLink>
                 </li>
                 <li className="nav__item">
-                    <a className="nav__link" href="#res">
-                        Reservations
-                    </a>
+                    <NavLink className="nav__link" to="/reservations">Reservations</NavLink>
                 </li>
                 <li className="nav__item">
-                    <a className="nav__link" href="#oo">
-                        Order Online
-                    </a>
+                    <NavLink className="nav__link" to="/order-online">Order Online</NavLink>
                 </li>
                 <li className="nav__item">
-                    <a className="nav__link" href="#login">
-                        Login
-                    </a>
+                    <NavLink className="nav__link" to="/login">Login</NavLink>
                 </li>
             </ul>
         </nav>
