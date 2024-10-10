@@ -38,7 +38,7 @@ function Nav() {
                     <NavLink className="nav__link" to="/menu">Menu</NavLink>
                 </li>
                 <li className="nav__item">
-                    <NavLink className="nav__link" to="/reservations">Reservations</NavLink>
+                    <NavLink className="nav__link" to="/bookings">Reservations</NavLink>
                 </li>
                 <li className="nav__item">
                     <NavLink className="nav__link" to="/order-online">Order Online</NavLink>

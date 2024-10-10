@@ -6,13 +6,9 @@ import Section from "../Layout/Section/Section"
 import FormError from "../Form/FormError"
 import FormItem from "../Form/FormItem"
 
-import useSubmit from "../../hooks/useSubmit"
-
 import "../Form/Form.css"
 
-function BookingForm() {
-
-    const { isLoading, submit } = useSubmit()
+function BookingForm({availableTimes, onDateChange, onFormSubmit, isLoading}) {
 
     const date = new Date();
     date.setDate(date.getDate() - 1);
@@ -24,7 +20,7 @@ function BookingForm() {
         occasion: Yup.string().optional(),
     })
 
-    const { getFieldProps, handleSubmit, errors } = useFormik({
+    const { getFieldProps, handleSubmit, errors, values } = useFormik({
         initialValues: {
             date: "",
             time: "17:00",
@@ -33,37 +29,30 @@ function BookingForm() {
         },
         validationSchema: schema,
         onSubmit: (values) => {
-            return new Promise((res, fail) => {
-                if (!isLoading) {
-                    submit("localhost", values)
-                        .then(() => {
-                            res()
-                        })
-                        .catch(() => {
-                            fail()
-                        })
-                } else {
-                    res()
-                }
-            })
+
+            if (typeof onFormSubmit === 'function') {
+                onFormSubmit(values);
+            }
         },
     })
 
-    const availableTimes = [
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-    ]
+    const { onChange } = getFieldProps('date');
+    const onDateChangeHandler = (event) => {
+        if (typeof onDateChange === 'function') {
+            onChange(event)
+            onDateChange({
+                type: 'onDateChnage',
+                date: values.date
+            });
+        }
+    }
 
     return (
         <Section>
             <form className="form" onSubmit={handleSubmit}>
                 <FormItem hasError={errors.date}>
                     <label htmlFor="res-date">Choose date *</label>
-                    <input {...getFieldProps('date')} id="res-date" type="date" aria-describedby={(errors.date) ? 'res-date-error' : null}/>
+                    <input {...getFieldProps('date')} id="res-date" type="date" aria-describedby={(errors.date) ? 'res-date-error' : null} onChange={onDateChangeHandler}/>
                     { errors.date && <FormError id="res-date-error">{errors.date}</FormError> }
                 </FormItem>
                 <FormItem hasError={errors.time}>

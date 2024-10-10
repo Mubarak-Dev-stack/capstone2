@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram, faMastodon, faThreads, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
+
 import logo from "../../../assets/logo-white.png";
 
 import "./Footer.css";
-import { faFacebook, faInstagram, faMastodon, faThreads, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 function Footer() {
     return (
@@ -14,22 +16,22 @@ function Footer() {
                     <h2>Sitemap</h2>
                     <ul className="footer__list">
                         <li>
-                            <a href="#home">Home</a>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <a href="#about">About</a>
+                            <Link to="/about">About</Link>
                         </li>
                         <li>
-                            <a href="#menu">Menu</a>
+                            <Link to="/Menu">Menu</Link>
                         </li>
                         <li>
-                            <a href="#res">Reservations</a>
+                            <Link to="/bookings">Reservations</Link>
                         </li>
                         <li>
-                            <a href="#oo">Order Online</a>
+                            <Link to="/order-online">Order Online</Link>
                         </li>
                         <li>
-                            <a href="#login">Login</a>
+                            <Link to="/login">Login</Link>
                         </li>
                     </ul>
                 </nav>
