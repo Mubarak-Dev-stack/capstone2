@@ -1,16 +1,22 @@
-import Layout from './components/Layout/Layout'
-import Homepage from './components/pages/Homepage'
+import { Route, Routes } from "react-router-dom";
 
-import './App.css'
+import Layout from "./components/Layout/Layout";
+import BookingPage from "./components/pages/BookingPage";
+import Homepage from "./components/pages/Homepage";
+
+import "./App.css";
 
 function App() {
     return (
-    <>
-        <Layout>
-            <Homepage />
-        </Layout>
-    </>
-  )
+        <>
+            <Layout>
+                <Routes>
+                    <Route path="/" element={<Homepage />} />
+                    <Route path="/reservations" element={<BookingPage />} />
+                </Routes>
+            </Layout>
+        </>
+    );
 }
 
-export default App
+export default App;

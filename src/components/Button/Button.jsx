@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom'
 import './Button.css'
 
 function Button({href, children, type="button"}) {
 
     return href
-        ? <a className="btn" href={href}>{children}</a>
+        ? <Link className="btn" to={href}>{children}</Link>
         : <button className="btn" type={type}>{children}</button>
 }
 

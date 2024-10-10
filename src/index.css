@@ -5,7 +5,9 @@
     --secondary-color-2: #fbdabb;
     --highlight-color-1: #edefee;
     --highlight-color-2: #333;
+    --grey: #e0e0e0;
     --white: #fff;
+    --error-color: tomato;
 
     --global-border-radius: 16px;
 }

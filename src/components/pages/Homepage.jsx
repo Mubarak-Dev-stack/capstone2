@@ -8,7 +8,7 @@ import mealdata from "../../data/meals"
 function Homepage() {
     return (
         <>
-            <Hero></Hero>
+            <Hero />
             <MealSection data={mealdata} />
             <Testimonials data={testimonialdata} />
             <About/>
