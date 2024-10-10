@@ -8,7 +8,7 @@ import FormItem from "../Form/FormItem"
 
 import "../Form/Form.css"
 
-function BookingForm({availableTimes, onDateChange, onFormSubmit, isLoading}) {
+function BookingForm({availableTimes = [], onDateChange, onFormSubmit, isLoading = false}) {
 
     const date = new Date();
     date.setDate(date.getDate() - 1);
