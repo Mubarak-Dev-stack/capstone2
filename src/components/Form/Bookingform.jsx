@@ -50,6 +50,7 @@ function BookingForm({availableTimes, onDateChange, onFormSubmit, isLoading}) {
     return (
         <Section>
             <form className="form" onSubmit={handleSubmit}>
+                <h2 className="m-b-3">Reserve a Table</h2>
                 <FormItem hasError={errors.date}>
                     <label htmlFor="res-date">Choose date *</label>
                     <input {...getFieldProps('date')} id="res-date" type="date" aria-describedby={(errors.date) ? 'res-date-error' : null} onChange={onDateChangeHandler}/>

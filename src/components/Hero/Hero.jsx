@@ -1,22 +1,39 @@
-import Button from '../Button/Button'
-import image from '../../assets/hero/restauranfood.jpg';
+import Button from "../Button/Button";
 
-import './Hero.css'
+import "./Hero.css";
 
-function Hero() {
-    return <article className="hero">
-        <div className="hero__inner container">
-            <div>
-                <h1>Little Lemon</h1>
-                <h2>Chicago</h2>
-                <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
-                <Button href="/reservations">Reserve a Table</Button>
+function Hero({
+    headline,
+    subHeadline,
+    text,
+    image,
+    imageAlt = "",
+    buttonText,
+    buttonLink,
+}) {
+    return (
+        <article className="hero">
+            <div className="hero__inner container">
+                <div>
+                    <h1>{headline}</h1>
+                    <h2>{subHeadline}</h2>
+                    {text && <p>{text}</p>}
+                    {buttonLink && buttonText && (
+                        <Button href={buttonLink}>Reserve a Table</Button>
+                    )}
+                </div>
+                <div>
+                    {image && (
+                        <img
+                            className="hero__image"
+                            src={image}
+                            alt={imageAlt}
+                        />
+                    )}
+                </div>
             </div>
-            <div>
-                <img className="hero__image" src={image} alt="restaurant food on a plate"/>
-            </div>
-        </div>
-    </article>
+        </article>
+    );
 }
 
-export default Hero
+export default Hero;

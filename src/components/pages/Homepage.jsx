@@ -5,10 +5,20 @@ import MealSection from "../sections/MealSection/MealSection"
 import testimonialdata from "../../data/testimonials"
 import mealdata from "../../data/meals"
 
+import image from '../../assets/hero/restauranfood.jpg';
+
 function Homepage() {
     return (
         <>
-            <Hero />
+            <Hero
+                headline="Little Lemon"
+                subHeadline="Chicago"
+                text="We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist."
+                image={image}
+                imageAlt="restaurant food on a plate"
+                buttonLink="/bookings"
+                buttonText="Reserve a Table"
+            />
             <MealSection data={mealdata} />
             <Testimonials data={testimonialdata} />
             <About/>
