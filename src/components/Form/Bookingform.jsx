@@ -117,9 +117,10 @@ function BookingForm({
                             errors.occasion ? "res-occasion-error" : null
                         }
                     >
-                        <option value="">Select a occasion</option>
+                        <option value="">Select an occasion</option>
                         <option value="Birthday">Birthday</option>
                         <option value="Anniversary">Anniversary</option>
+                        <option value="Date">Date</option>
                     </select>
                     {errors.occasion && (
                         <FormError id="res-occasion-error">
