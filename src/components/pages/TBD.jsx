@@ -1,11 +1,11 @@
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { faHelmetSafety } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Section from "../Layout/Section/Section";
 import Hero from "../Hero/Hero";
 
-import heroImage from "../../assets/hero/restaurant.jpg";
+import heroImage from '../../assets/hero/restauranfood.jpg';
 
-function BookingConfirmationPage() {
+function TBD() {
     return (
         <>
             <Hero
@@ -13,14 +13,14 @@ function BookingConfirmationPage() {
                 subHeadline="Chicago"
                 text="We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist."
                 image={heroImage}
-                imageAlt="Restaurent inside area"
+                imageAlt="restaurant food on a plate"
             />
             <Section>
                 <div className="flex gap-2">
-                    <FontAwesomeIcon className="m-t-1" icon={faCircleCheck} size="xl" />
+                    <FontAwesomeIcon className="m-t-1" icon={faHelmetSafety} size="xl" />
                     <div>
-                        <h2>Your reservation has been confirmed.</h2>
-                        <p>You will receive an email with all the details.</p>
+                        <h2>This page is still under construction</h2>
+                        <p>Please come back later.</p>
                     </div>
                 </div>
             </Section>
@@ -28,4 +28,4 @@ function BookingConfirmationPage() {
     );
 }
 
-export default BookingConfirmationPage;
+export default TBD;

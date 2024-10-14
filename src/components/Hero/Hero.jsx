@@ -28,6 +28,8 @@ function Hero({
                             className="hero__image"
                             src={image}
                             alt={imageAlt}
+                            width="416"
+                            height="416"
                         />
                     )}
                 </div>

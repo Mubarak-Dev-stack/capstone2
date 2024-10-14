@@ -49,10 +49,12 @@
 
 
 .hero__image {
+    aspect-ratio: 1;
     display: block;
     margin-bottom: -30%;
     border-radius: var(--global-border-radius);
     width: 100%;
+    height: auto;
 
     @media screen and (max-width: 760px) {
         margin-bottom: 0;

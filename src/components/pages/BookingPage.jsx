@@ -57,7 +57,7 @@ function BookingPage() {
                 subHeadline="Chicago"
                 text="We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist."
                 image={heroImage}
-                imageAlt="Rastaurent inside area"
+                imageAlt="Restaurent inside area"
             />
             <BookingForm
                 availableTimes={availableTimes}
