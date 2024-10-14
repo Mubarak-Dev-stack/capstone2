@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import format from "date-fns/format";
+import { format } from "date-fns";
 
 import Button from "../Button/Button";
 import Section from "../Layout/Section/Section";
@@ -34,7 +34,7 @@ function BookingForm({
 
     const { getFieldProps, handleSubmit, errors, values } = useFormik({
         initialValues: {
-            date: format(today, 'yyyy-MM-dd'),
+            date: format(today, "yyyy-MM-dd"),
             time: availableTimes?.length ? availableTimes[0] : "",
             guests: "",
             occasion: "",
@@ -65,7 +65,7 @@ function BookingForm({
                 <FormItem hasError={errors.date}>
                     <label htmlFor="res-date">Choose date *</label>
                     <input
-                        min={format(today, 'yyyy-MM-dd')}
+                        min={format(today, "yyyy-MM-dd")}
                         {...getFieldProps("date")}
                         id="res-date"
                         type="date"
@@ -117,9 +117,10 @@ function BookingForm({
                             errors.occasion ? "res-occasion-error" : null
                         }
                     >
-                        <option value="">Select a occasion</option>
+                        <option value="">Select an occasion</option>
                         <option value="Birthday">Birthday</option>
                         <option value="Anniversary">Anniversary</option>
+                        <option value="Date">Date</option>
                     </select>
                     {errors.occasion && (
                         <FormError id="res-occasion-error">

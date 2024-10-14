@@ -9,12 +9,12 @@ import fetchTimes from "../../data/availableTimes";
 
 import heroImage from '../../assets/hero/restaurant.jpg';
 
-const createInitialAvailableTimes = (times) => {
+export const createInitialAvailableTimes = (times) => {
     const response = fetchTimes(new Date());
     return [...times, ...(response?.data || [])];
 };
 
-const availableTimesReducer = (availableTimes, action) => {
+export const availableTimesReducer = (availableTimes, action) => {
     if (action.type === "onDateChnage") {
         const response = fetchTimes(new Date(action.date));
         return response?.data?.length ? response.data : availableTimes;
