@@ -6,7 +6,6 @@ import Hero from "../Hero/Hero";
 
 import heroImage from "../../assets/hero/restaurant.jpg";
 import { fetchAPI, submitAPI } from "../../data/fetchApi";
-import { parse } from "date-fns";
 
 export const createInitialAvailableTimes = (times) => {
     const response = fetchAPI(new Date());
@@ -15,7 +14,7 @@ export const createInitialAvailableTimes = (times) => {
 
 export const availableTimesReducer = (availableTimes, action) => {
     if (action.type === "onDateChange") {
-        const response = fetchAPI(parse(action.date, 'yyyy-MM-dd', new Date()));
+        const response = fetchAPI(new Date(action.date));
         return response?.length ? response : availableTimes;
     }
 
