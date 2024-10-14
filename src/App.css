@@ -13,6 +13,26 @@
     text-align: center;
 }
 
+.m-t-1 {
+    margin-top: calc(1 * 8px);
+}
+
 .m-b-3 {
     margin-bottom: calc(3 * 8px);
+}
+
+.flex {
+    display: flex;
+}
+
+.gap-1 {
+    gap: calc(1 * 8px);
+}
+
+.gap-2 {
+    gap: calc(2 * 8px);
+}
+
+.align-center {
+    align-items: center;
 }
