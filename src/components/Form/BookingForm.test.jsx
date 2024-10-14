@@ -25,10 +25,10 @@ describe("Booking form", () => {
         );
 
         const submitButton = screen.getByText("Make Your reservation");
+        fireEvent.click(submitButton);
 
-        await act(async () => {
-            submitButton.click();
-        });
+        // flush formik microtasks
+        await act(() => Promise.resolve());
 
         expect(submitHandler).toHaveBeenCalledWith({
             date: today,
@@ -53,12 +53,11 @@ describe("Booking form", () => {
         fireEvent.change(dateInput, { target: { value: "" } });
         fireEvent.blur(dateInput);
 
-        let errorMessage;
+        // flush formik microtasks
+        await act(() => Promise.resolve());
 
-        await waitFor(() => {
-            errorMessage = screen.getByTestId("error-message");
-            expect(errorMessage).toBeInTheDocument();
-        });
+        const errorMessage = screen.getByTestId("error-message");
+        expect(errorMessage).toBeInTheDocument();
         expect(errorMessage).toHaveTextContent("Please select a date");
     });
 
@@ -76,12 +75,11 @@ describe("Booking form", () => {
         fireEvent.change(input, { target: { value: "" } });
         fireEvent.blur(input);
 
-        let errorMessage;
+        // flush formik microtasks
+        await act(() => Promise.resolve());
 
-        await waitFor(() => {
-            errorMessage = screen.getByTestId("error-message");
-            expect(errorMessage).toBeInTheDocument();
-        });
+        const errorMessage = screen.getByTestId("error-message");
+        expect(errorMessage).toBeInTheDocument();
         expect(errorMessage).toHaveTextContent(
             "Please enter the number of guests",
         );
