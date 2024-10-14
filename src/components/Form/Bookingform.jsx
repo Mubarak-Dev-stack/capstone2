@@ -29,10 +29,10 @@ function BookingForm({
             .required("Please enter the number of guests")
             .min(1, "Enter min one guest")
             .max(10, "Max 10 guests are allowed"),
-        occasion: Yup.string().optional(),
+        occasion: Yup.string().required("Please select an occasion"),
     });
 
-    const { getFieldProps, handleSubmit, errors } = useFormik({
+    const { getFieldProps, handleSubmit, errors, touched } = useFormik({
         initialValues: {
             date: format(today, "yyyy-MM-dd"),
             time: availableTimes?.length ? availableTimes[0] : "",
@@ -55,76 +55,92 @@ function BookingForm({
             onChange(event);
             onDateChange({
                 type: "onDateChange",
-                date: event.target.value
+                date: event.target.value,
             });
         }
     };
 
     return (
         <Section>
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit} noValidate>
                 <h2 className="m-b-3">Reserve a Table</h2>
-                <FormItem hasError={errors.date}>
+                <FormItem hasError={touched.date && errors.date}>
                     <label htmlFor="res-date">Choose date *</label>
                     <input
-                        min={format(today, "yyyy-MM-dd")}
                         {...getFieldProps("date")}
                         id="res-date"
                         type="date"
-                        aria-describedby={errors.date ? "res-date-error" : null}
+                        min={format(today, "yyyy-MM-dd")}
+                        aria-describedby={
+                            touched.date && errors.date
+                                ? "res-date-error"
+                                : null
+                        }
                         onChange={onDateChangeHandler}
                     />
-                    {errors.date && (
+                    {touched.date && errors.date && (
                         <FormError id="res-date-error">{errors.date}</FormError>
                     )}
                 </FormItem>
-                <FormItem hasError={errors.time}>
+                <FormItem hasError={touched.time && errors.time}>
                     <label htmlFor="res-time">Choose time *</label>
                     <select
                         {...getFieldProps("time")}
                         id="res-time"
-                        aria-describedby={errors.time ? "res-time-error" : null}
+                        aria-describedby={
+                            touched.time && errors.time
+                                ? "res-time-error"
+                                : null
+                        }
                     >
                         {availableTimes.map((time) => (
-                            <option key={time} data-testid="res-time-option">{time}</option>
+                            <option key={time} data-testid="res-time-option">
+                                {time}
+                            </option>
                         ))}
                     </select>
-                    {errors.time && (
+                    {touched.time && errors.time && (
                         <FormError id="res-time-error">{errors.time}</FormError>
                     )}
                 </FormItem>
-                <FormItem hasError={errors.guests}>
+                <FormItem hasError={touched.guests && errors.guests}>
                     <label htmlFor="guests">Number of guests *</label>
                     <input
                         {...getFieldProps("guests")}
                         id="guests"
                         type="number"
                         placeholder="1 to 10 guests"
+                        min={1}
+                        max={10}
                         aria-describedby={
-                            errors.date ? "res-guests-error" : null
+                            touched.guests && errors.guests
+                                ? "res-guests-error"
+                                : null
                         }
                     />
-                    {errors.guests && (
+                    {touched.guests && errors.guests && (
                         <FormError id="res-guests-error">
                             {errors.guests}
                         </FormError>
                     )}
                 </FormItem>
-                <FormItem hasError={errors.occasion}>
-                    <label htmlFor="occasion">Occasion</label>
+                <FormItem hasError={touched.occasion && errors.occasion}>
+                    <label htmlFor="occasion">Occasion *</label>
                     <select
                         {...getFieldProps("occasion")}
                         id="occasion"
                         aria-describedby={
-                            errors.occasion ? "res-occasion-error" : null
+                            touched.occasion && errors.occasion
+                                ? "res-occasion-error"
+                                : null
                         }
                     >
                         <option value="">Select an occasion</option>
-                        <option value="Birthday">Birthday</option>
                         <option value="Anniversary">Anniversary</option>
+                        <option value="Birthday">Birthday</option>
                         <option value="Date">Date</option>
                     </select>
-                    {errors.occasion && (
+                    {touched.occasion && errors.occasion && (
                         <FormError id="res-occasion-error">
                             {errors.occasion}
                         </FormError>
