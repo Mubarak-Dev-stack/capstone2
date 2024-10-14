@@ -9,7 +9,7 @@ test("createInitialAvailableTimes and availableTimesReducer", () => {
     expect(initialTimes.length).toBeGreaterThan(0);
 
     const reduced = availableTimesReducer(initialTimes, {
-        type: "onDateChnage",
+        type: "onDateChange",
         date: new Date(),
     });
     expect(reduced).toBeDefined();

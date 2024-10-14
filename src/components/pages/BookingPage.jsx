@@ -4,50 +4,37 @@ import { useNavigate } from "react-router-dom";
 import BookingForm from "../Form/Bookingform";
 import Hero from "../Hero/Hero";
 
-import useSubmit from "../../hooks/useSubmit";
-import fetchTimes from "../../data/availableTimes";
-
-import heroImage from '../../assets/hero/restaurant.jpg';
+import heroImage from "../../assets/hero/restaurant.jpg";
+import { fetchAPI, submitAPI } from "../../data/fetchApi";
+import { parse } from "date-fns";
 
 export const createInitialAvailableTimes = (times) => {
-    const response = fetchTimes(new Date());
-    return [...times, ...(response?.data || [])];
+    const response = fetchAPI(new Date());
+    return [...times, ...(response || [])];
 };
 
 export const availableTimesReducer = (availableTimes, action) => {
-    if (action.type === "onDateChnage") {
-        const response = fetchTimes(new Date(action.date));
-        return response?.data?.length ? response.data : availableTimes;
+    if (action.type === "onDateChange") {
+        const response = fetchAPI(parse(action.date, 'yyyy-MM-dd', new Date()));
+        return response?.length ? response : availableTimes;
     }
 
     return availableTimes;
 };
 
 function BookingPage() {
-    const { isLoading, submit } = useSubmit();
     const navigate = useNavigate();
 
     const [availableTimes, dispatchOnDateChange] = useReducer(
         availableTimesReducer,
         [],
-        createInitialAvailableTimes
+        createInitialAvailableTimes,
     );
 
     const submitHandler = (formData) => {
-        return new Promise((res, fail) => {
-            if (!isLoading) {
-                submit("submitData", formData)
-                    .then(() => {
-                        navigate("/booking-confirmation");
-                        res();
-                    })
-                    .catch(() => {
-                        fail();
-                    });
-            } else {
-                res();
-            }
-        });
+        if (submitAPI(formData)) {
+            navigate("/booking-confirmation");
+        }
     };
 
     return (
@@ -63,7 +50,6 @@ function BookingPage() {
                 availableTimes={availableTimes}
                 onDateChange={dispatchOnDateChange}
                 onFormSubmit={submitHandler}
-                isLoading={isLoading}
             />
         </>
     );

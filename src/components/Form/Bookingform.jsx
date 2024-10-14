@@ -32,7 +32,7 @@ function BookingForm({
         occasion: Yup.string().optional(),
     });
 
-    const { getFieldProps, handleSubmit, errors, values } = useFormik({
+    const { getFieldProps, handleSubmit, errors } = useFormik({
         initialValues: {
             date: format(today, "yyyy-MM-dd"),
             time: availableTimes?.length ? availableTimes[0] : "",
@@ -54,8 +54,8 @@ function BookingForm({
         if (typeof onDateChange === "function") {
             onChange(event);
             onDateChange({
-                type: "onDateChnage",
-                date: values.date,
+                type: "onDateChange",
+                date: event.target.value
             });
         }
     };
