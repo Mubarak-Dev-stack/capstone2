@@ -32,12 +32,18 @@ function BookingForm({
         occasion: Yup.string().required("Please select an occasion"),
     });
 
-    const { getFieldProps, handleSubmit, errors, touched } = useFormik({
+    const {
+        getFieldProps,
+        handleSubmit,
+        errors,
+        touched,
+        handleChange
+    } = useFormik({
         initialValues: {
             date: format(today, "yyyy-MM-dd"),
             time: availableTimes?.length ? availableTimes[0] : "",
             guests: "1",
-            occasion: "",
+            occasion: "Anniversary",
         },
         validationSchema: schema,
         onSubmit: (values) => {
@@ -47,12 +53,12 @@ function BookingForm({
         },
     });
 
-    const { onChange } = getFieldProps("date");
     const onDateChangeHandler = (event) => {
         event.preventDefault();
 
+        handleChange(event);
+
         if (typeof onDateChange === "function") {
-            onChange(event);
             onDateChange({
                 type: "onDateChange",
                 date: event.target.value,
@@ -67,15 +73,16 @@ function BookingForm({
                 <FormItem hasError={touched.date && errors.date}>
                     <label htmlFor="res-date">Choose date *</label>
                     <input
-                        {...getFieldProps("date")}
                         id="res-date"
                         type="date"
                         min={format(today, "yyyy-MM-dd")}
                         aria-describedby={
                             touched.date && errors.date
-                                ? "res-date-error"
-                                : null
+                            ? "res-date-error"
+                            : null
                         }
+                        required
+                        {...getFieldProps("date")}
                         onChange={onDateChangeHandler}
                     />
                     {touched.date && errors.date && (
@@ -85,13 +92,14 @@ function BookingForm({
                 <FormItem hasError={touched.time && errors.time}>
                     <label htmlFor="res-time">Choose time *</label>
                     <select
-                        {...getFieldProps("time")}
                         id="res-time"
                         aria-describedby={
                             touched.time && errors.time
                                 ? "res-time-error"
                                 : null
                         }
+                        required
+                        {...getFieldProps("time")}
                     >
                         {availableTimes.map((time) => (
                             <option key={time} data-testid="res-time-option">
@@ -117,6 +125,7 @@ function BookingForm({
                                 ? "res-guests-error"
                                 : null
                         }
+                        required
                     />
                     {touched.guests && errors.guests && (
                         <FormError id="res-guests-error">
@@ -134,8 +143,8 @@ function BookingForm({
                                 ? "res-occasion-error"
                                 : null
                         }
+                        required
                     >
-                        <option value="">Select an occasion</option>
                         <option value="Anniversary">Anniversary</option>
                         <option value="Birthday">Birthday</option>
                         <option value="Date">Date</option>
