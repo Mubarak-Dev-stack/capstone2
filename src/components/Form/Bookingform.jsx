@@ -86,7 +86,7 @@ function BookingForm({
                         aria-describedby={errors.time ? "res-time-error" : null}
                     >
                         {availableTimes.map((time) => (
-                            <option key={time}>{time}</option>
+                            <option key={time} data-testid="res-time-option">{time}</option>
                         ))}
                     </select>
                     {errors.time && (
