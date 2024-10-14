@@ -36,7 +36,7 @@ function BookingForm({
         initialValues: {
             date: format(today, "yyyy-MM-dd"),
             time: availableTimes?.length ? availableTimes[0] : "",
-            guests: "",
+            guests: "1",
             occasion: "",
         },
         validationSchema: schema,
@@ -49,6 +49,8 @@ function BookingForm({
 
     const { onChange } = getFieldProps("date");
     const onDateChangeHandler = (event) => {
+        event.preventDefault();
+
         if (typeof onDateChange === "function") {
             onChange(event);
             onDateChange({
