@@ -1,4 +1,4 @@
-import { faHelmetSafety } from "@fortawesome/free-solid-svg-icons";
+import { faBug } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Section from "../Layout/Section/Section";
 import Hero from "../Hero/Hero";
@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 
 import heroImage from '../../assets/hero/restauranfood.jpg';
 
-function TBD() {
+function NotFoundPage() {
     return (
         <>
             <Hero
@@ -18,10 +18,10 @@ function TBD() {
             />
             <Section>
                 <div className="flex gap-2">
-                    <FontAwesomeIcon className="m-t-1" icon={faHelmetSafety} size="xl" />
+                    <FontAwesomeIcon className="m-t-1" icon={faBug} size="xl" />
                     <div>
-                        <h2>This page is still under construction</h2>
-                        <p>Please come back later.</p>
+                        <h2>404 - Page not found</h2>
+                        <p>Sorry, this page does not exist.</p>
                         <Button href="/">Back to our Homepage</Button>
                     </div>
                 </div>
@@ -30,4 +30,4 @@ function TBD() {
     );
 }
 
-export default TBD;
+export default NotFoundPage;
